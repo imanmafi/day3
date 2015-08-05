@@ -1,12 +1,14 @@
 class String
-  define_method(:beats?) do |player2|
+  define_method(:rock_paper_scissors) do
+    options = {0 => "rock", 1 => "paper", 2 => "scissors"}
+    comp = options.fetch(rand(3))
     player1 = self
-    if player1 == player2
-      winner = "You have tied."
-    elsif (player1=="rock"&&player2=="scissors") || (player1=="paper"&&player2=="rock") || (player1=="scissors"&&player2=="paper")
-      winner = "Player 1 is the winner!"
+    if comp == player1
+      winner = "You and the computer have tied."
+    elsif (player1=="rock"&&comp=="scissors") || (player1=="paper"&&comp=="rock") || (player1=="scissors"&&comp=="paper")
+      winner = "You chose " + player1 + " and the computer chose " + comp + ". You have won!"
     else
-      winner = "Player 2 is the winner!"
+      winner = "You chose " + player1 + " and the computer chose " + comp + ". You have lost!"
     end
   end
 end

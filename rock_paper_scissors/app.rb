@@ -9,7 +9,6 @@ end
 
 get('/winner') do
   @player1 = params.fetch('player1')
-  @player2 = params.fetch('player2')
-  @winner = @player1.beats?(@player2)
+  @winner = @player1.rock_paper_scissors()
   erb(:winner)
 end
